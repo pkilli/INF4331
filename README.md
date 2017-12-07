@@ -1,1 +1,1 @@
-# INF3331-peterek
+# INF4331 - Problem solving with high level languages
