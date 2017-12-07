@@ -1,0 +1,12 @@
+"#.*(?:$|\n)": comment
+"\b(def\s*.*\(.*\):)": def
+"\b(class\s*.*:)": class
+"\b(return\s*.*)": return
+"\b(for\s*.*:)": for
+"\b(while\s*.*:)": while
+"\b(print\s*.*\(.*\))": print
+"(import)((?:\s|\\\s)+)|(from)((?:\s|\\\s)+)": from_import
+"\b(else|if|elif)\b": else_if_elif
+"(\b(True)\s*)|(\b(False)\s*)|(\b(None)\s*)": True_False_None
+"(\"\"\".*?\"\"\"|\"\"\"[\s\d\w\S]+?\"\"\"|\".*?\"|'.*')": string
+"(@.*)": decorators

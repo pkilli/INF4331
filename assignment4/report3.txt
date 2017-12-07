@@ -1,0 +1,4 @@
+I am not gaining any significantly better cpy time by using cython compared with the vectorized numpy version.
+
+cython mandelbrot: 7.525597
+numpy mandelbrot: 7.594734

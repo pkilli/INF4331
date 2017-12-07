@@ -1,0 +1,172 @@
+\documentclass[a4paper]{article}
+
+% Import some useful packages
+\usepackage[margin=0.5in]{geometry} % narrow margins
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{hyperref}
+\usepackage{minted}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\definecolor{LightGray}{gray}{0.95}
+
+\title{Peer-review of assignment 4 for \textit{INF3331-peterek}}
+\author{Torjus Dahle, torjuskd, {torjuskd@uio.no} \\
+ 		Daniel Egelandsdal Osen, danieleo, {danieleo@student.matnat.uio.no} \\
+		Oleksandr Korpusov, oleksako, {alpost@zoho.com}}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+\subsection{Goal}
+The review should provide feedback on the solution to the student. The main goal is to \emph{give constructive feedback and advice} on how to improve the solution. You, the peer-review team, can decide how you organise the peer-review work between you. 
+
+\subsection{Guidelines}\label{sec:general_review}
+For each (coding) exercise, one should review the following points:
+
+\begin{itemize}
+  \item Is the code \textbf{working as expected}? For non-internal functions (in particular for scripts that are run from the command-line), does the program handle invalid inputs sensibly?
+  \item Is the code \textbf{well documented}? Are there docstrings and are the useful?
+  \item Is the code written in \textbf{Pythonic way} \footnote{https://www.python.org/dev/peps/pep-0020/}? Is the code easy to read? Are the variable/class/function names sensible? Do you find overuse of classes or not sufficient use of functions or classes? Are there parts of the program that are hard to understand? 
+  \item Can you find \textbf{unnecessarily complicated parts} of the program? If so, suggest an improved implementation.
+  \item List the programming parts that are not answered.
+\end{itemize}
+Use (shortened) code snippets where appropriate to show how to improve the solution. 
+
+\subsection{Points}
+The review is completed by pushing the review Latex and PDF files to each of the reviewed repositories. The name of the files should be \emph{feedback.tex} and \emph{feedback.pdf}.
+
+You will get up to 10 points for delivering the peer-reviews. Each of you should contribute to the review roughly equivalently - your team will get the same number of points\footnote{In case a team-member does not contribute, please email \href{mailto:simon@simula.no}{simon@simula.no}}. 
+
+\subsection{Useful Latex snippets}
+Here is some sample usage of Latex.
+
+\subsubsection{Sample code}
+\begin{minted}[bgcolor=LightGray, linenos, fontsize=\footnotesize]{python}
+import sys
+print "This is a sample code"
+sys.exit(0)
+\end{minted}
+
+\subsubsection{Mathematical equation}
+\begin{align}
+2 \pi > 6
+\end{align}
+
+
+
+\section{Review}\label{sec:review}
+Tested on Ubuntu 14.04.1 using Python 3.4.3.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{General feedback}
+One aspect you can work on is testing your code, and eliminating unnecessary bugs.
+The documentation of your code is good - just write more of it! :)
+Your code is efficient, readable, you have kept it simple and understandable throughout the assignment - keep it this way.
+It is clear that you know how to program well, just remember the little things. ;)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Assignment 4.1: Python implementation}
+The code is ok and clean looking, but there are a few issues.
+The first one is you shebang:
+
+\begin{minted}[bgcolor=LightGray, linenos, fontsize=\footnotesize]{python}
+#Looks like this:
+#!/user/bin/env python3
+
+#You probably want something like this instead:
+#!/usr/bin/env python3 # "usr" is the default "user"-dir on unix systems
+
+#(and on OS X it would be /Users)
+\end{minted}
+
+Another really unfortunate thing is that the program won't actually run because of another tiny mistake:
+
+\begin{minted}[bgcolor=LightGray, linenos, fontsize=\footnotesize]{python}
+#Instead of this:
+if "__name__" == "__main__": # here you compare the string "__name__" to the string "__main__"
+
+#This is what you probably wanted to do:
+if __name__ == "__main__":
+\end{minted}
+
+The imported "time" is being overshadowed with the defined time float variable.
+
+The script also doesn't specify a filename, so no image file is saved to disk or shown to the user.
+After after fixing these issues I still get some runtime warnings:
+
+\begin{minted}[bgcolor=LightGray, linenos, fontsize=\footnotesize]{python}
+./mandelbrot_1_fixed.py:22: RuntimeWarning: overflow encountered in cdouble_scalars
+  if (f_c * numpy.conj(f_c) > 2**2):
+./mandelbrot_1_fixed.py:22: RuntimeWarning: invalid value encountered in cdouble_scalars
+  if (f_c * numpy.conj(f_c) > 2**2):
+./mandelbrot_1_fixed.py:21: RuntimeWarning: overflow encountered in cdouble_scalars
+  f_c = f_c*f_c + c
+./mandelbrot_1_fixed.py:21: RuntimeWarning: invalid value encountered in cdouble_scalars
+  f_c = f_c*f_c + c
+\end{minted}
+
+I would have tried to look into the cause of these warnings, but your script completes successfully (after the aforementioned changes) so I guess it doesn't matter much. Your code is readable, pythonic, well documented and concise. You have done a good job, I would just advise you to test your code more thoroughly.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Assignment 4.2:  numpy implementation} \label{sec:assignment5.2}
+Much of the same (as on 4.1) applies here, except that here you added a function call outside the main test, so the code actually runs (but will lead to problems later). This time the code is working as expected, well documented, pythonic and has efficient use of numpy.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Assignment 4.3: Integrated C implementation}
+Providing a comment on how to install could have been a good idea.
+Other than that, the code is good. You had very similar runtimes using cython compared to numpy. One reason for that might be that you rely heavily on numpy arrays, instead of using more primitive c-type arrays, and your solution is fundamentally the same. Concise readable code, simple but perhaps a little bit lacking in documentation/comments/instructions.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Assignment 4.4:  An alternative integrated C implementation}
+Again lacking install/setup instructions.
+Code seems good. Maybe it ran on your system, but I couldn't quite install it/get it to run:
+
+\begin{minted}[bgcolor=LightGray, linenos, fontsize=\footnotesize]{python}
+mandelbrot_4.i:7: Error: Unable to find 'numpy.i'
+error: command 'swig' failed with exit status 1
+\end{minted}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Assignment 4.5: User interface}
+The user interface is really good, even interactive. Well done!
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Assignment 4.6:  Packaging and unit tests}
+No test framework used. There is also no apparent way to run the tests.
+Maybe instructions are lacking again?
+Same problem as earlier here with the imported time being overshadowed.
+
+And unfortunately, mandelbrot\_2.py has its mandelbrot-method called when imported here:
+
+\begin{minted}[bgcolor=LightGray, linenos, fontsize=\footnotesize]{python}
+#from "test_mandelbrot.py"
+from mandelbrot_2 import mandelbrot #this calls the  mandelbrot_2 method directly. Again probably not what you want to do.
+\end{minted}
+
+For a outsider there is no way to tell what the expected input value for the variable iterations is in the test-function.
+
+\begin{minted}[bgcolor=LightGray, linenos, fontsize=\footnotesize]{python}
+def test(iterations, max_escape_time):
+\end{minted}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Assignment 4.7: More color scales + art contest}
+The user is able to freely choose color scale, great!
+Not much to say here, other than job well done.
+
+\subsection*{Assignment 4.8: Self replication}
+No file called replicator.py found.
+There are several (although tricky) ways to do this. One example is:
+
+\begin{minted}[bgcolor=LightGray, linenos, fontsize=\footnotesize]{python}
+rep = r"print('rep = r\"'+ rep +'\"\neval(rep)')"
+eval(rep)
+\end{minted}
+
+\bibliographystyle{plain}
+\bibliography{literature}
+
+\end{document}

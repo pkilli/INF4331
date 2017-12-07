@@ -1,0 +1,11 @@
+"(//.*|/\*[\w\W\D\d\s]*?\*/)": comments
+"(assert|case|default|do|for|goto|instanceof|new|return|switch|this|while|private|void|public)\b": keywords
+"(".*"|'.?')": strings-chars
+"@.+\(?.+\)?": decorators
+"(import) .+;": import
+"(class)\b": class
+"(true|false)": booleans
+"(if|else)\b": if
+"(try|catch|finally|throw)\b": try_catch
+"(break|continue)\b": goto
+"(int|char|boolean)\b": basic_types

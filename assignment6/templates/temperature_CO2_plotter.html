@@ -1,0 +1,62 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module temperature_CO2_plotter</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>temperature_CO2_plotter</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/peterek/Desktop/INF3331-peterek/assignment6/temperature_CO2_plotter.py">/home/peterek/Desktop/INF3331-peterek/assignment6/temperature_CO2_plotter.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="glob.html">glob</a><br>
+<a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
+<a href="pandas.html">pandas</a><br>
+</td><td width="25%" valign=top><a href="matplotlib.pyplot.html">matplotlib.pyplot</a><br>
+<a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top><a href="time.html">time</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-plot"><strong>plot</strong></a>(val1, val2, description<font color="#909090">=None</font>, name<font color="#909090">=None</font>, val3<font color="#909090">=None</font>, val4<font color="#909090">=None</font>, BAR<font color="#909090">=False</font>)</dt><dd><tt>Making&nbsp;a&nbsp;plot&nbsp;with&nbsp;matplotlib&nbsp;with&nbsp;values&nbsp;from&nbsp;methods&nbsp;in&nbsp;program<br>
+@param&nbsp;val1&nbsp;Value&nbsp;to&nbsp;use&nbsp;in&nbsp;plot<br>
+@param&nbsp;val2&nbsp;&nbsp;Value&nbsp;to&nbsp;use&nbsp;in&nbsp;plot<br>
+@param&nbsp;description&nbsp;string&nbsp;for&nbsp;title&nbsp;to&nbsp;the&nbsp;plot<br>
+@param&nbsp;name&nbsp;Filename<br>
+@param&nbsp;val3&nbsp;value&nbsp;to&nbsp;help&nbsp;plot&nbsp;bar<br>
+@param&nbsp;val4&nbsp;Value&nbsp;to&nbsp;plot&nbsp;bar<br>
+@param&nbsp;bar&nbsp;True&nbsp;if&nbsp;it&nbsp;is&nbsp;supposed&nbsp;to&nbsp;be&nbsp;a&nbsp;bar&nbsp;plot,&nbsp;False&nbsp;otherwise<br>
+@return&nbsp;png&nbsp;file</tt></dd></dl>
+ <dl><dt><a name="-plot_CO2"><strong>plot_CO2</strong></a>(start<font color="#909090">=None</font>, end<font color="#909090">=None</font>)</dt><dd><tt>Reads&nbsp;from&nbsp;the&nbsp;file&nbsp;co2.csv&nbsp;with&nbsp;help&nbsp;from&nbsp;pandas.<br>
+finds&nbsp;carbon&nbsp;emission&nbsp;in&nbsp;the&nbsp;time&nbsp;period&nbsp;specified&nbsp;the&nbsp;parameters.<br>
+@param&nbsp;start&nbsp;First&nbsp;Year&nbsp;specified<br>
+@param&nbsp;end&nbsp;&nbsp;Last&nbsp;year.<br>
+@return&nbsp;png&nbsp;file&nbsp;for&nbsp;vizualizing</tt></dd></dl>
+ <dl><dt><a name="-plot_CO2_per_country"><strong>plot_CO2_per_country</strong></a>(year<font color="#909090">=None</font>, lower<font color="#909090">=None</font>, upper<font color="#909090">=None</font>)</dt><dd><tt>Reads&nbsp;from&nbsp;the&nbsp;file&nbsp;CO2_by_country.csv&nbsp;with&nbsp;help&nbsp;from&nbsp;pandas.<br>
+finds&nbsp;temperature&nbsp;in&nbsp;the&nbsp;time&nbsp;period&nbsp;specified&nbsp;the&nbsp;parameters.<br>
+@param&nbsp;Year&nbsp;Year&nbsp;specified<br>
+@param&nbsp;lower&nbsp;&nbsp;Lower&nbsp;threshold&nbsp;of&nbsp;carbon&nbsp;emission&nbsp;emitted&nbsp;per&nbsp;capita<br>
+@param&nbsp;upper&nbsp;Upper&nbsp;threshold&nbsp;of&nbsp;carbon&nbsp;emission&nbsp;emitted&nbsp;per&nbsp;capita<br>
+@return&nbsp;png&nbsp;file&nbsp;for&nbsp;vizualizing</tt></dd></dl>
+ <dl><dt><a name="-plot_temperature"><strong>plot_temperature</strong></a>(start<font color="#909090">=None</font>, end<font color="#909090">=None</font>, month<font color="#909090">=None</font>)</dt><dd><tt>Reads&nbsp;from&nbsp;the&nbsp;file&nbsp;temperature.csv&nbsp;with&nbsp;help&nbsp;from&nbsp;pandas.<br>
+finds&nbsp;temperature&nbsp;in&nbsp;the&nbsp;time&nbsp;period&nbsp;specified&nbsp;the&nbsp;parameters.<br>
+@param&nbsp;start&nbsp;First&nbsp;Year&nbsp;specified<br>
+@param&nbsp;end&nbsp;&nbsp;Last&nbsp;year.<br>
+@param&nbsp;month&nbsp;Month&nbsp;to&nbsp;vizualize&nbsp;the&nbsp;temperature<br>
+@return&nbsp;png&nbsp;file&nbsp;for&nbsp;vizualizing</tt></dd></dl>
+</td></tr></table>
+</body></html>

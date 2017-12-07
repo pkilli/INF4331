@@ -1,0 +1,13 @@
+cmacros: 0;91
+void: 0;90
+int: 0;31
+return: 0;32
+for: 0;93
+while: 0;33
+printf: 0;34
+comment: 0;95
+else_if_elif: 0;94
+static: 0;92
+string: 0;96
+break: 0;36
+symbols: 0;35

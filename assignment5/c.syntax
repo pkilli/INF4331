@@ -1,0 +1,13 @@
+"#.*(?:$|\n)": cmacros
+"\b.*void\s*.*\(.*\).*": void
+"(\bint\s+\w+\(.*\))|(\bint\s+.*;)": int
+"\b(return\s*.*)": return
+"\b(for\s*\(.*\).*)": for
+"\b(while\s*\(.*\).*)": while
+"\b(printf\s*.*\(.*\);)": printf
+"\/\/.*(?:$|\n)": comment
+"\b(else.*)|(if.*)|(elif.*)": else_if_elif
+"(\b.*static\s*.*)": static
+"\/\*.*\*\/|\/\*[\s\d\w\S]+?\/": string
+"\b(break\s*.*;)": break
+"!=|==|<<|>>|[-~+\*%=<>&^|.?]": symbols

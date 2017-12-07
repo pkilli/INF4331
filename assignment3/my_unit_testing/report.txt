@@ -1,0 +1,4 @@
+Better_addition function failes when sending in number_times = 0
+sum_computations = [a + b for n in range(num_rechecks)] is not beeing initiated and the function returns 
+no value
+

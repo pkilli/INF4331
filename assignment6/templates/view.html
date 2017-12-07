@@ -1,0 +1,25 @@
+
+<a href="/home/peterek/Desktop/INF3331-peterek/assignment6/templates/temperature_CO2_plotter.html">HELP PAGE FOR TEMPERATURE_CO2_PLOTTER.PY</a><br>
+<br>
+This web page can visualize carbon emission from one year to another,<br>
+temperature in a month from one year to another and<br>
+carbon emission by countries.<br>
+<br>
+Choose what plot you want by using the drag down button on the bottom.<br>
+<br>
+<form method=post action="">
+<table>
+  {% for field in form %}
+    <tr>
+    <td>{{ field.name }}</td><td>{{ field }}</td>
+    <td>{{ field.label }}</td>
+    </tr>
+  {% endfor %}
+</table>
+<p><input type=submit value=Compute></form></p>
+
+<p>
+{% if result != None %}
+<img src="{{ result }}" height="400">
+{% endif %}
+</p>

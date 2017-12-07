@@ -1,0 +1,7 @@
+Using the vectorized version makes the runtime significantly better. How much is
+gained by switching to numpy?
+mandelbrot_data_numpy, time_numpy 	= mandelbrot_2.mandelbrot(-2,2.,-2,2,1000,1000,50)
+mandelbrot_data_python, time_python = mandelbrot_1.mandelbrot(-2,2.,-2,2,1000,1000,50)
+Running both programs with these numbers gives cpu times as follows:
+numpy mandelbrot: 0.8141579999999999
+python mandelbrot: 101.401939

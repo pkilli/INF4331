@@ -1,0 +1,12 @@
+comment: 0;90
+def: 0;91
+class: 0;32
+return: 0;31
+for: 0;33
+while: 0;93
+print: 0;95
+from_import: 0;34
+else_if_elif: 0;92
+True_False_None: 0;94
+string: 0;36
+decorators: 0;96
